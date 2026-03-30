@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ImgHTMLAttributes } from 'react'
+import { useCallback, useEffect, useReducer, type ImgHTMLAttributes } from 'react'
 import { getOrCacheImage, revokeObjectUrl } from './imageCache'
 
 interface CachedImgProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> {
@@ -14,6 +14,34 @@ interface CachedImgProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'
   /** CSS class for the skeleton placeholder shown while loading. */
   skeletonClassName?: string
 }
+
+// --- State machine ---------------------------------------------------
+
+type State = {
+  settled: boolean
+  /** The latest blob/object URL to display; undefined means use src prop directly. */
+  cachedSrc: string | undefined
+}
+
+type Action =
+  | { type: 'SETTLE' }
+  | { type: 'SETTLE_CACHED'; cachedSrc: string }
+  | { type: 'RESET' }
+
+function reducer(_prev: State, action: Action): State {
+  switch (action.type) {
+    case 'SETTLE':
+      return { settled: true, cachedSrc: undefined }
+    case 'SETTLE_CACHED':
+      return { settled: true, cachedSrc: action.cachedSrc }
+    case 'RESET':
+      return { settled: false, cachedSrc: undefined }
+    default:
+      return _prev
+  }
+}
+
+// --- Component -------------------------------------------------------
 
 /**
  * Image component with IndexedDB client-side caching for cross-origin images.
@@ -33,10 +61,10 @@ export function CachedImg({
   loading = 'lazy',
   ...rest
 }: CachedImgProps) {
-  const [displaySrc, setDisplaySrc] = useState<string | undefined>(src)
-  const [loaded, setLoaded] = useState(false)
-  const objectUrlRef = useRef<string | null>(null)
-  const mountedRef = useRef(true)
+  const [{ settled, cachedSrc }, dispatch] = useReducer(reducer, {
+    settled: true,
+    cachedSrc: undefined,
+  })
 
   const shouldCache =
     skipCache !== undefined
@@ -46,48 +74,49 @@ export function CachedImg({
         !src.startsWith('blob:') &&
         !src.startsWith(window.location.origin + '/')
 
-  useEffect(() => {
-    mountedRef.current = true
+  // The final URL: use cached object URL if available, otherwise fall back to the original src
+  const finalSrc = cachedSrc ?? src
 
+  useEffect(() => {
     if (!shouldCache || src == null) {
-      setDisplaySrc(src)
-      setLoaded(true)
+      dispatch({ type: 'SETTLE' })
       return
     }
 
-    const urlToFetch = src
-    setLoaded(false)
+    dispatch({ type: 'RESET' })
+
+    let activeObjectUrl: string | null = null
+    let cancelled = false
 
     async function load() {
       try {
-        const [objectUrl] = await getOrCacheImage(urlToFetch)
-        if (!mountedRef.current) {
-          revokeObjectUrl(objectUrl)
+        const [newObjectUrl] = await getOrCacheImage(src!)
+        if (cancelled) {
+          revokeObjectUrl(newObjectUrl)
           return
         }
-        const prev = objectUrlRef.current
-        if (prev) revokeObjectUrl(prev)
-        objectUrlRef.current = objectUrl
-        setDisplaySrc(objectUrl)
+        activeObjectUrl = newObjectUrl
+        dispatch({ type: 'SETTLE_CACHED', cachedSrc: newObjectUrl })
       } catch {
-        if (!mountedRef.current) return
-        setDisplaySrc(urlToFetch)
+        if (cancelled) return
+        dispatch({ type: 'SETTLE' })
       }
     }
 
     load()
 
     return () => {
-      mountedRef.current = false
-      const cur = objectUrlRef.current
-      if (cur) {
-        revokeObjectUrl(cur)
-        objectUrlRef.current = null
+      cancelled = true
+      if (activeObjectUrl) {
+        revokeObjectUrl(activeObjectUrl)
       }
     }
   }, [src, shouldCache])
 
-  const showSkeleton = !loaded && shouldCache && displaySrc !== src
+  const showSkeleton = !settled && shouldCache
+
+  const handleLoad = useCallback(() => dispatch({ type: 'SETTLE' }), [])
+  const handleError = useCallback(() => dispatch({ type: 'SETTLE' }), [])
 
   return (
     <>
@@ -100,12 +129,12 @@ export function CachedImg({
       )}
       <img
         {...rest}
-        src={displaySrc}
+        src={finalSrc}
         alt={alt}
         className={className}
         loading={loading}
-        onLoad={() => setLoaded(true)}
-        onError={() => setLoaded(true)}
+        onLoad={handleLoad}
+        onError={handleError}
         style={{ display: showSkeleton ? 'none' : undefined, ...rest.style }}
       />
     </>

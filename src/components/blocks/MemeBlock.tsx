@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MEME_MANIFEST, type MemeEntry } from 'virtual:meme-manifest'
 import { memeAssetPath } from '../../utils/memeUrl'
+import { CachedImg } from '../../utils/CachedImg'
 
 type MemeBlockProps = {
   /** Key in the meme manifest, e.g. "fist-pump" */
@@ -94,11 +95,10 @@ function Lightbox({ src, alt, onClose }: { src: string; alt: string; onClose: ()
           >
             <i className="fas fa-times" />
           </button>
-          <img
+          <CachedImg
             className="meme-lightbox__img"
             src={src}
             alt={alt}
-            loading="lazy"
           />
         </motion.div>
       </motion.div>
@@ -147,11 +147,10 @@ export function MemeBlock({
     <>
       <figure className={wrapperClass} onClick={openLightbox} role={lightbox ? 'button' : undefined} tabIndex={lightbox ? 0 : undefined} onKeyDown={lightbox ? (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox() } } : undefined} aria-label={resolved.alt}>
         <div className="meme-block__img-wrap">
-          <img
+          <CachedImg
             className="meme-block__img"
             src={resolved.src}
             alt={resolved.alt}
-            loading="lazy"
             decoding="async"
           />
           {lightbox && (
