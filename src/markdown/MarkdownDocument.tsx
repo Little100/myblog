@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { publicAssetUrl } from '../utils/publicAssetUrl'
+import { SafeImg } from '../components/HttpsFallbackImg'
 import { splitByCustomBlocks } from '../extensions/customBlockSpecs'
 import type { DocumentSegment, ZigzagItem, MemeSegment } from './segmentTypes'
 import { MarkdownFlow } from './MarkdownFlow'
@@ -29,7 +29,7 @@ function ImageFromMarkdown({ src: markdownImg }: { src: string }) {
   const match = markdownImg.match(/!\[(.*?)\]\(([^)\s]+)\)/)
   if (!match) return null
   const [, alt, src] = match
-  return <img className="md-img" src={publicAssetUrl(src)} alt={alt} loading="lazy" />
+  return <SafeImg className="md-img" src={src} alt={alt} loading="lazy" />
 }
 
 function renderSegment(seg: DocumentSegment, index: number, enableMediaZigzag?: boolean) {

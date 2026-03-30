@@ -9,7 +9,7 @@ import { useTheme } from '../../theme/ThemeContext'
 import { LOCALE_DEFS } from '../../i18n/translations'
 import { useI18n } from '../../i18n/I18nContext'
 import { siteConfig } from '../../config/site'
-import { publicAssetUrl } from '../../utils/publicAssetUrl'
+import { SafeImg } from '../HttpsFallbackImg'
 import clsx from 'clsx'
 import type { MarkdownAnnotation } from '../../utils/annotationMarkdown'
 import { AnnotationBubbleProvider } from '../post/AnnotationBubbleCtx'
@@ -144,8 +144,8 @@ export function FocusReader({
           <div className="focus-reader__scroller">
             <div className="focus-reader__inner">
               <div className="focus-reader__meta">
-                <img
-                  src={publicAssetUrl(siteConfig.avatar)}
+                <SafeImg
+                  src={siteConfig.avatar}
                   width={56}
                   height={56}
                   className="focus-reader__meta-avatar"
@@ -181,7 +181,7 @@ export function FocusReader({
 
               {coverSrc ? (
                 <div className="focus-reader__hero">
-                  <img src={publicAssetUrl(coverSrc)} alt="" loading="lazy" />
+                  <SafeImg src={coverSrc} alt="" loading="lazy" />
                 </div>
               ) : null}
 
@@ -210,7 +210,7 @@ export function FocusReader({
                           }}
                         >
                           {r.icon && (
-                            <img src={publicAssetUrl(r.icon)} alt="" className="related-row__img" loading="lazy" />
+                            <SafeImg src={r.icon} alt="" className="related-row__img" loading="lazy" />
                           )}
                           <span className="related-row__label">{r.title}</span>
                         </Link>

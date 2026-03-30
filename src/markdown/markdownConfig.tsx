@@ -8,8 +8,7 @@ import { defaultSchema } from 'rehype-sanitize'
 import { MarkdownFenceBlock } from './MarkdownFenceBlock'
 import { useMdInsidePre } from './MdPreContext'
 import { AnnotationAnchor } from '../components/post/AnnotationAnchor'
-import { publicAssetUrl } from '../utils/publicAssetUrl'
-import { remarkUpgradeHttpImages } from './remarkUpgradeHttpImages'
+import { SafeImg } from '../components/HttpsFallbackImg'
 
 interface MarkdownCodeProps extends ComponentProps<'code'> {
   node?: unknown
@@ -57,15 +56,28 @@ const markdownComponents: Components = {
     void _imgNode
     const cls = String(className ?? '')
     const isMemeInline = cls.includes('meme-inline__img')
-    // Meme inline URLs are already processed by memeAssetPath (includes publicAssetUrl);
-    // only apply publicAssetUrl for regular markdown images.
     const resolvedSrc = src != null ? String(src) : undefined
+
+    if (isMemeInline) {
+      return (
+        <img
+          className={cls}
+          loading="lazy"
+          alt={alt ?? ''}
+          src={resolvedSrc}
+          {...props}
+        />
+      )
+    }
+
+    if (!resolvedSrc) return null
+
     return (
-      <img
-        className={isMemeInline ? cls : `md-img${cls ? ` ${cls}` : ''}`.trim()}
+      <SafeImg
+        src={resolvedSrc}
+        className={`md-img${cls ? ` ${cls}` : ''}`.trim()}
+        alt={String(alt ?? '')}
         loading="lazy"
-        alt={alt ?? ''}
-        src={isMemeInline ? resolvedSrc : (resolvedSrc ? publicAssetUrl(resolvedSrc) : undefined)}
         {...props}
       />
     )
@@ -107,7 +119,7 @@ const sanitizeSchema = {
   },
 }
 
-export const markdownRemarkPlugins: PluggableList = [remarkUpgradeHttpImages, remarkGfm]
+export const markdownRemarkPlugins: PluggableList = [remarkGfm]
 
 export function buildMarkdownRehypePlugins(): PluggableList {
   return [rehypeRaw, [rehypeSanitize, sanitizeSchema]]

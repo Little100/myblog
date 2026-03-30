@@ -8,6 +8,7 @@ import { useI18n } from '../i18n/I18nContext'
 import { POST_INDEX_BY_LOCALE } from '../i18n/postIndex'
 import { postMatchesTagSlug } from '../utils/blogTags'
 import { useLocalePath } from '../utils/useLocalePath'
+import { SafeImg } from '../components/HttpsFallbackImg'
 
 const BLOG_PAGE_SIZE = 20
 
@@ -116,7 +117,7 @@ export function BlogListPage() {
                 <Link to={getLocalePath(`/post/${post.slug}`)} className="blog-row glass-card">
                   {post.icon && (
                     <div className="blog-row__thumb">
-                      <img src={post.icon} alt="" loading="lazy" />
+                      <SafeImg src={post.icon} alt="" loading="lazy" />
                     </div>
                   )}
                   <div className="blog-row__text">

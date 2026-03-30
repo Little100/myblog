@@ -21,6 +21,7 @@ import { LOCALE_DEFS } from '../../i18n/translations'
 import { useArticleFocus } from '../../focus/ArticleFocusContext'
 import { siteConfig } from '../../config/site'
 import { publicAssetUrl } from '../../utils/publicAssetUrl'
+import { CachedImg } from '../../utils/CachedImg'
 import { LocaleSwitcher } from './LocaleSwitcher'
 import { stripBasePath } from '../../config/basePath'
 import { localePathForRouter } from '../../utils/useLocalePath'
@@ -175,7 +176,7 @@ export function Header() {
           className="site-brand inline-flex min-w-0 items-center gap-3 text-[var(--heading)] no-underline max-[900px]:col-start-2 max-[900px]:row-start-1 max-[900px]:flex max-[900px]:max-w-[16rem] max-[900px]:flex-col max-[900px]:items-center max-[900px]:justify-self-center max-[900px]:gap-2 max-[900px]:px-1 max-[900px]:text-center"
           onClick={() => setMenuOpen(false)}
         >
-          <img
+          <CachedImg
             className="site-avatar-img h-11 w-11 max-[900px]:h-12 max-[900px]:w-12 border-2 border-[var(--glass-border)] object-cover"
             src={publicAssetUrl(siteConfig.avatar)}
             width={44}

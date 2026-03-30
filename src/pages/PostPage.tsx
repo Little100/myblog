@@ -30,7 +30,7 @@ import { SocialLinks } from '../components/layout/SocialLinks'
 import { isPostRelatedSlidePending, markPostRelatedNavigation } from '../utils/postRelatedNav'
 import { SeoHead } from '../components/seo/SeoHead'
 import { siteConfig } from '../config/site'
-import { publicAssetUrl } from '../utils/publicAssetUrl'
+import { SafeImg } from '../components/HttpsFallbackImg'
 import { useLocalePath } from '../utils/useLocalePath'
 
 function relatedForSlug(current: string, loc: Locale): PostMeta[] {
@@ -251,7 +251,7 @@ export function PostPage() {
                         className="related-row"
                         onClick={() => markPostRelatedNavigation()}
                       >
-                        <img src={publicAssetUrl(r.icon)} alt="" className="related-row__img" loading="lazy" />
+                        <SafeImg src={r.icon} alt="" className="related-row__img" loading="lazy" />
                         <span className="related-row__label">{r.title}</span>
                       </Link>
                     </li>
@@ -393,7 +393,7 @@ export function PostPage() {
                       className="related-row"
                       onClick={() => markPostRelatedNavigation()}
                     >
-                      <img src={publicAssetUrl(r.icon)} alt="" className="related-row__img" loading="lazy" />
+                      <SafeImg src={r.icon} alt="" className="related-row__img" loading="lazy" />
                       <span className="related-row__label">{r.title}</span>
                     </Link>
                   </li>

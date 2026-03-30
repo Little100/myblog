@@ -67,7 +67,8 @@ function iconMimeFromHref(href: string): string | undefined {
 function absolutizeForOg(image: string | undefined): string | undefined {
   if (!image?.trim()) return undefined
   const t = image.trim()
-  if (t.startsWith('http://') || t.startsWith('https://')) return t
+  if (t.startsWith('http://')) return 'https://' + t.slice(7)
+  if (t.startsWith('https://')) return t
   const base = siteConfig.seo.siteUrl.replace(/\/$/, '')
   const path = t.startsWith('/') ? t : `/${t}`
   return `${base}${path}`

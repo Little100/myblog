@@ -7,7 +7,7 @@ import { POST_INDEX_BY_LOCALE } from '../i18n/postIndex'
 import { CategorySidebar } from '../components/layout/CategorySidebar'
 import { TagSidebar } from '../components/layout/TagSidebar'
 import { SocialLinks } from '../components/layout/SocialLinks'
-import { publicAssetUrl } from '../utils/publicAssetUrl'
+import { SafeImg } from '../components/HttpsFallbackImg'
 import { useLocalePath } from '../utils/useLocalePath'
 
 export function HomePage() {
@@ -65,12 +65,7 @@ export function HomePage() {
                   >
                     {post.icon ? (
                       <div className="post-card__img-wrap">
-                        <img
-                          className="post-card__img"
-                          src={publicAssetUrl(post.icon)}
-                          alt=""
-                          loading="lazy"
-                        />
+                        <SafeImg className="post-card__img" src={post.icon} alt="" loading="lazy" />
                       </div>
                     ) : null}
                     <div className="post-card__body">
