@@ -9,6 +9,7 @@ import { MarkdownFenceBlock } from './MarkdownFenceBlock'
 import { useMdInsidePre } from './MdPreContext'
 import { AnnotationAnchor } from '../components/post/AnnotationAnchor'
 import { publicAssetUrl } from '../utils/publicAssetUrl'
+import { remarkUpgradeHttpImages } from './remarkUpgradeHttpImages'
 
 interface MarkdownCodeProps extends ComponentProps<'code'> {
   node?: unknown
@@ -106,7 +107,7 @@ const sanitizeSchema = {
   },
 }
 
-export const markdownRemarkPlugins: PluggableList = [remarkGfm]
+export const markdownRemarkPlugins: PluggableList = [remarkUpgradeHttpImages, remarkGfm]
 
 export function buildMarkdownRehypePlugins(): PluggableList {
   return [rehypeRaw, [rehypeSanitize, sanitizeSchema]]
