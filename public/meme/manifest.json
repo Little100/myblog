@@ -1,0 +1,7 @@
+{
+  "_comment": "Meme manifest — registry of all available memes.",
+  "_how_to_use": "Paste `!meme[name]` into any post .md file. E.g. `哈哈 !meme[大哭]`",
+  "_image_types": ["gif", "webp", "png", "jpeg", "jpg"],
+
+  "_adding_a_new_meme": "Simply drop your image file (e.g. 大笑.gif) into public/meme/. It auto-registers as !meme[大笑]. Optionally add metadata here (key = desired name). Example: add  \"大笑\": { \"src\": \"/meme/大笑.gif\", \"type\": \"image/gif\", \"tags\": [\"reaction\"] }  to this file to give it custom caption/tags. Manifest values override auto-detected filenames."
+}

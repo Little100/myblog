@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Meme Manifest",
+  "description": "Index of all meme images available in the blog's meme folder. Each meme can be referenced in posts via !meme[name] or <meme name=\"name\">.",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/$defs/MemeEntry"
+  },
+  "$defs": {
+    "MemeEntry": {
+      "type": "object",
+      "required": ["src", "type"],
+      "properties": {
+        "src": {
+          "type": "string",
+          "description": "Relative path from this manifest file, e.g. 'fist-pump.webp'"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["image/gif", "image/webp", "image/png", "image/jpeg"],
+          "description": "MIME type of the image"
+        },
+        "caption": {
+          "type": "string",
+          "description": "Optional short caption shown below the meme"
+        },
+        "alt": {
+          "type": "string",
+          "description": "Accessibility alt text (defaults to caption)"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Tags for grouping/filtering memes in the picker"
+        },
+        "addedAt": {
+          "type": "string",
+          "format": "date",
+          "description": "ISO date when this meme was added"
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "fist-pump": {
+        "src": "fist-pump.webp",
+        "type": "image/webp",
+        "caption": "Fist pump!",
+        "alt": "Character pumping fist in celebration",
+        "tags": ["celebration", "positive"],
+        "addedAt": "2026-03-30"
+      },
+      "sad-cat": {
+        "src": "sad-cat.png",
+        "type": "image/png",
+        "caption": "When the code works on the first try",
+        "tags": ["debugging", "fail"],
+        "addedAt": "2026-03-30"
+      }
+    }
+  ]
+}

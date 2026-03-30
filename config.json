@@ -1,0 +1,95 @@
+{
+  "title": "Little100's BLOG",
+  "avatar": "/avatar.png",
+  "defaultAuthor": "Little100",
+  "exportContactPath": "/contact",
+  "contact": {
+    "sections": []
+  },
+  "languages": [
+    "en",
+    "ja",
+    "zh",
+    "zh-TW"
+  ],
+  "defaultLanguage": "zh",
+  "giscus": {
+    "enabled": true,
+    "repo": "Little100/myblog",
+    "repoId": "R_kgDORzEtSg",
+    "category": "Announcements",
+    "categoryId": "DIC_kwDORzEtSs4C5hlR",
+    "mapping": "pathname",
+    "reactionsEnabled": "1",
+    "emitMetadata": "0",
+    "inputPosition": "bottom",
+    "lang": "zh-CN"
+  },
+  "social": [
+    {
+      "platform": "github",
+      "href": "https://github.com/Little100",
+      "detail": "Little100",
+      "label": "GitHub",
+      "icon": "fab fa-github"
+    },
+    {
+      "platform": "email",
+      "href": "mailto:2662308929@qq.com",
+      "label": "Email",
+      "detail": "2662308929@qq.com",
+      "icon": "fas fa-envelope"
+    },
+    {
+      "platform": "qq",
+      "href": "tencent://message/?uin=2662308929&Site=qq&Menu=yes",
+      "label": "QQ 好友",
+      "detail": "2662308929",
+      "icon": "fab fa-qq"
+    },
+    {
+      "platform": "qqgroup",
+      "href": "https://qm.qq.com/q/1ElgViwAOc",
+      "label": "QQ 群",
+      "detail": "点击加入QQ群",
+      "icon": "fab fa-qq"
+    }
+  ],
+  "footer": {
+    "tagline": "Markdown on the fly · custom blocks via the tokenizer",
+    "copyright": "© 2026 Little100. All rights reserved.",
+    "links": [
+      { "label": "About", "href": "/about" },
+      { "label": "Tags", "href": "/tags" },
+      { "label": "Contact", "href": "/contact" },
+      { "label": "Privacy", "href": "/privacy" }
+    ]
+  },
+  "seo": {
+    "siteUrl": "https://blog.little100.cn",
+    "description": "Little100's personal blog about writing, photography, and web experiments.",
+    "title": "Little100's BLOG",
+    "twitterHandle": "@little100",
+    "ogImage": "/og-image.png"
+  },
+  "icons": {
+    "favicon": "/avatar.png",
+    "appleTouchIcon": "/avatar.png",
+    "maskIcon": "/avatar.png",
+    "themeColor": "#863bff"
+  },
+  "analytics": {
+    "enabled": false,
+    "provider": "umami",
+    "url": "",
+    "id": ""
+  },
+  "build": {
+    "compressAssets": true,
+    "targetFormat": "webp"
+  },
+  "updates": {
+    "enabled": true,
+    "repo": "Little100/myblog"
+  }
+}

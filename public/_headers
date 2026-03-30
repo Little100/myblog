@@ -1,0 +1,35 @@
+# Cache headers for GitHub Pages / Netlify / Vercel
+# Images — immutable, long-lived cache (fingerprinted filenames)
+# JavaScript & CSS bundles — immutable
+# Fonts — immutable
+
+/meme/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=31536000, immutable
+
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+/avatar.png
+  Cache-Control: public, max-age=86400

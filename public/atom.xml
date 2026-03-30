@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Little100&apos;s BLOG</title>
+  <subtitle>Little100&apos;s personal blog about writing, photography, and web experiments.</subtitle>
+  <link href="https://Little100.github.io/myblog/atom.xml" rel="self"/>
+  <link href="https://Little100.github.io/myblog/"/>
+  <id>https://Little100.github.io/myblog/</id>
+  <updated>2026-03-30T00:00:00Z</updated>
+  <author>
+    <name>Little100</name>
+  </author>
+  <generator uri="https://vitejs.dev/">Vite</generator>
+  <icon>https://Little100.github.io/myblog/avatar.png</icon>
+  <logo>https://Little100.github.io/myblog/og-image.png</logo>
+  <entry>
+    <title>如何搭建我的blog?</title>
+    <link href="https://Little100.github.io/myblog/post/blog" rel="alternate"/>
+    <id>https://Little100.github.io/myblog/post/blog</id>
+    <updated>2026-03-31T00:00:00Z</updated>
+    <published>2026-03-31T00:00:00Z</published>
+    <summary>Read more about 如何搭建我的blog? on Little100&apos;s BLOG.</summary>
+  </entry>
+  <entry>
+    <title>一个公益的Frp!</title>
+    <link href="https://Little100.github.io/myblog/post/chmlfrp" rel="alternate"/>
+    <id>https://Little100.github.io/myblog/post/chmlfrp</id>
+    <updated>2026-03-30T00:00:00Z</updated>
+    <published>2026-03-30T00:00:00Z</published>
+    <summary>Read more about 一个公益的Frp! on Little100&apos;s BLOG.</summary>
+  </entry>
+  <entry>
+    <title>Fxxk you Intel</title>
+    <link href="https://Little100.github.io/myblog/post/Fintel" rel="alternate"/>
+    <id>https://Little100.github.io/myblog/post/Fintel</id>
+    <updated>2026-03-30T00:00:00Z</updated>
+    <published>2026-03-30T00:00:00Z</published>
+    <summary>Read more about Fxxk you Intel on Little100&apos;s BLOG.</summary>
+  </entry>
+</feed>
