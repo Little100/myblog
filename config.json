@@ -16,9 +16,9 @@
   "giscus": {
     "enabled": true,
     "repo": "Little100/myblog",
-    "repoId": "R_kgDORzEtSg",
+    "repoId": "R_kgDOR1A4Lg",
     "category": "Announcements",
-    "categoryId": "DIC_kwDORzEtSs4C5hlR",
+    "categoryId": "DIC_kwDOR1A4Ls4C5oqZ",
     "mapping": "pathname",
     "reactionsEnabled": "1",
     "emitMetadata": "0",
