@@ -29,14 +29,14 @@ I think it was during my first year of middle school — I can't quite remember 
 
 This is probably the first thing anyone checks, so I'll get right to it.
 
-|||{[(Official pricing)](https://www.chmlfrp.net/#dingjia)} Homepage pricing shown here. Permanent plans require checking the control panel, but I've included them below| [Official Detailed Pricing](https://panel.chmlfrp.net/shop/buy)
+||{[([Official pricing](https://www.chmlfrp.net/#dingjia))]} Homepage pricing shown here. Permanent plans require checking the control panel, but I've included them below| [Official Detailed Pricing](https://panel.chmlfrp.net/shop/buy)
 
-|| Plan | Price | Speed Limit (CN/INTL) in mbps | Tunnel Count | Official Tech Support |
-|| --- | --- | --- | --- | --- |
-|| Free | 0 points/month | 8/32 | 4 | 0 times/month |
-|| Regular Member | 8000 points/month or 80 RMB/permanent | 16/64 | 8 | 0 times/month |
-|| Premium Member | 12000 points/month or 120 RMB/permanent | 24/96 | 12 | 1 time/month |
-|| Super Member | 16000 points/month or 160 RMB/permanent | 32/128 | 16 | 2 times/month |
+| Plan | Price | Speed Limit (CN/INTL) in mbps | Tunnel Count | Official Tech Support |
+| --- | --- | --- | --- | --- |
+| Free | 0 points/month | 8/32 | 4 | 0 times/month |
+| Regular Member | 8000 points/month or 80 RMB/permanent | 16/64 | 8 | 0 times/month |
+| Premium Member | 12000 points/month or 120 RMB/permanent | 24/96 | 12 | 1 time/month |
+| Super Member | 16000 points/month or 160 RMB/permanent | 32/128 | 16 | 2 times/month |
 
 <question collapsible:close title:"Why are some items missing?">
 Because subdomains, free SSL certs, and similar features are rarely used, so I didn't include them.
@@ -57,13 +57,13 @@ See the [node status page](https://panel.chmlfrp.net/tunnel/status) for details.
 
 <list collapsible:close title:"chaoji's Cloud Server Pricing (Last updated 2026.03.31)">
 Xi'an DDoS Protection 5218 Processor
-|| Spec | Bandwidth | Disk | Monthly Price |
-|| ------ | --- | -------- | -------- |
-|| 2 Core 4G | 10M | 50G | **15 RMB** |
-|| 4 Core 8G | 15M | 50G+100G | **28 RMB** |
-|| 8 Core 16G | 20M | 50G+200G | **52 RMB** |
-|| 16 Core 32G | 20M | 50G+400G | **100 RMB** |
-|| 24 Core 64G | 30M | 50G+800G | **200 RMB** |
+| Spec | Bandwidth | Disk | Monthly Price |
+| ------ | --- | -------- | -------- |
+| 2 Core 4G | 10M | 50G | **15 RMB** |
+| 4 Core 8G | 15M | 50G+100G | **28 RMB** |
+| 8 Core 16G | 20M | 50G+200G | **52 RMB** |
+| 16 Core 32G | 20M | 50G+400G | **100 RMB** |
+| 24 Core 64G | 30M | 50G+800G | **200 RMB** |
 
 100G DDoS protection, 3-day no-reason refund policy.
 

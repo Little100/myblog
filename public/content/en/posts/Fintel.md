@@ -33,7 +33,7 @@ Steve Jobs, co-founder of Apple, approached Intel's CEO to produce processors fo
 
 ## 2010–2016
 
-|||{[(AMD FX — Bulldozer series — failed to meet expectations)]}High frequency, low performance, power consumption went through the roof|. It created a legend: i3 beats all, i5 beats all, i7 crushes everything. Then ~~the牙膏厂 (Incremental Upgrade Factory)~~ Intel developed the habit of "tick-tock" incremental improvements. Gen 4–7 Core series averaged only 5% improvement. In 2014, they started patching and tweaking. The planned 10nm process was delayed indefinitely, and 14nm was used for 7 years.
+||{[(AMD FX — Bulldozer series — failed to meet expectations)]}High frequency, low performance, power consumption went through the roof|. It created a legend: i3 beats all, i5 beats all, i7 crushes everything. Then ~~the牙膏厂 (Incremental Upgrade Factory)~~ Intel developed the habit of "tick-tock" incremental improvements. Gen 4–7 Core series averaged only 5% improvement. In 2014, they started patching and tweaking. The planned 10nm process was delayed indefinitely, and 14nm was used for 7 years.
 
 ## 2017
 
