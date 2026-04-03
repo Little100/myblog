@@ -5356,6 +5356,12 @@ html[data-theme='dark'] .back-to-top {
   margin: 0;
 }
 
+.meme-gallery__copy-error {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--danger, #c62828);
+}
+
 .meme-gallery__controls {
   display: flex;
   flex-direction: column;
@@ -5519,6 +5525,35 @@ html[data-theme='dark'] .back-to-top {
 .meme-gallery__item-tag:hover {
   border-color: var(--pill-active);
   color: var(--pill-active);
+}
+
+.meme-gallery__copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--pill-active) 45%, var(--glass-border));
+  background: color-mix(in srgb, var(--pill-active) 12%, transparent);
+  color: var(--pill-active);
+  font-size: 0.65rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.meme-gallery__copy:hover {
+  border-color: var(--pill-active);
+  background: color-mix(in srgb, var(--pill-active) 22%, transparent);
+}
+
+.meme-gallery__copy--done {
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+  background: transparent;
 }
 
 .meme-gallery__empty {

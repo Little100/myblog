@@ -1,13 +1,54 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { MEME_MANIFEST } from 'virtual:meme-manifest'
-import { memeAssetPath } from '../utils/memeUrl'
+import { giscusMemeMarkdownSnippet, memeAssetPath } from '../utils/memeUrl'
 import { useI18n } from '../i18n/I18nContext'
 import { SeoHead } from '../components/seo/SeoHead'
+
+async function copyTextToClipboard(text: string): Promise<boolean> {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text)
+      return true
+    } catch {
+      /* fall through */
+    }
+  }
+  try {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    ta.setAttribute('readonly', '')
+    ta.style.position = 'fixed'
+    ta.style.left = '-9999px'
+    document.body.appendChild(ta)
+    ta.select()
+    const ok = document.execCommand('copy')
+    document.body.removeChild(ta)
+    return ok
+  } catch {
+    return false
+  }
+}
 
 export function MemeGalleryPage() {
   const { t } = useI18n()
   const [search, setSearch] = useState('')
   const [activeTag, setActiveTag] = useState<string | null>(null)
+  const [copiedKey, setCopiedKey] = useState<string | null>(null)
+  const [copyFailed, setCopyFailed] = useState(false)
+
+  const copyMemeMarkdown = useCallback(async (key: string) => {
+    setCopyFailed(false)
+    const entry = MEME_MANIFEST[key]
+    if (!entry?.src) return
+    const md = giscusMemeMarkdownSnippet(key, entry.src)
+    const ok = await copyTextToClipboard(md)
+    if (!ok) {
+      setCopyFailed(true)
+      return
+    }
+    setCopiedKey(key)
+    window.setTimeout(() => setCopiedKey(null), 1600)
+  }, [])
 
   const entries = useMemo(() => Object.entries(MEME_MANIFEST), [])
 
@@ -41,6 +82,11 @@ export function MemeGalleryPage() {
           <header className="meme-gallery__header">
             <h1 className="meme-gallery__title">{t('meme.gallery.title')}</h1>
             <p className="meme-gallery__lead">{t('meme.gallery.lead')}</p>
+            {copyFailed && (
+              <p className="meme-gallery__copy-error" role="alert">
+                {t('meme.reactions.copyFailed')}
+              </p>
+            )}
           </header>
 
           <div className="meme-gallery__controls">
@@ -114,6 +160,14 @@ export function MemeGalleryPage() {
                         ))}
                       </div>
                     )}
+                    <button
+                      type="button"
+                      className={`meme-gallery__copy${copiedKey === key ? ' meme-gallery__copy--done' : ''}`}
+                      onClick={() => void copyMemeMarkdown(key)}
+                    >
+                      <i className="fas fa-copy" aria-hidden />
+                      {copiedKey === key ? t('meme.gallery.copied') : t('meme.gallery.copyMarkdown')}
+                    </button>
                   </div>
                 </div>
               ))}

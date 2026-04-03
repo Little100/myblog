@@ -149,7 +149,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
 
     'meme.gallery.pageTitle': 'Meme Gallery',
     'meme.gallery.title': 'Meme Gallery',
-    'meme.gallery.lead': 'Use `!meme[name]` in comments or copy the Markdown image link.',
+    'meme.gallery.lead':
+      'In post comments, use `!meme[name]` or the “Copy Markdown for Giscus” button below and paste into Giscus. Do not use “Copy image address” from the browser while on localhost — GitHub proxies images through Camo and cannot fetch your machine.',
+    'meme.gallery.copyMarkdown': 'Copy Markdown for Giscus',
+    'meme.gallery.copied': 'Copied',
     'meme.gallery.searchPlaceholder': 'Search memes…',
     'meme.gallery.filterByTag': 'Filter by tag',
     'meme.gallery.all': 'All',
@@ -323,7 +326,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
 
     'meme.gallery.pageTitle': 'ミームギャラリー',
     'meme.gallery.title': 'ミームギャラリー',
-    'meme.gallery.lead': 'コメントで `!meme[name]` を使うか、Markdown 画像リンクをコピーしてください。',
+    'meme.gallery.lead':
+      '記事のコメントでは `!meme[name]` を使うか、下の「Giscus 用 Markdown をコピー」を押して Giscus に貼り付けてください。localhost 表示中にブラウザの「画像アドレスをコピー」で得た URL は使わないでください。GitHub は Camo 経由で画像を取得するため、あなたの PC 上の URL にはアクセスできません。',
+    'meme.gallery.copyMarkdown': 'Giscus 用 Markdown をコピー',
+    'meme.gallery.copied': 'コピーしました',
     'meme.gallery.searchPlaceholder': 'ミームを検索…',
     'meme.gallery.filterByTag': 'タグで絞り込み',
     'meme.gallery.all': 'すべて',
@@ -497,7 +503,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
 
     'meme.gallery.pageTitle': '表情包图库',
     'meme.gallery.title': '表情包图库',
-    'meme.gallery.lead': '在评论中使用 `!meme[name]` 或复制 Markdown 图片链接。',
+    'meme.gallery.lead':
+      '在文章评论里可使用 `!meme[name]`，或点击下方「复制 Giscus 用 Markdown」粘贴到 Giscus。不要使用浏览器右键「复制图片地址」在本地开发（localhost）时得到的链接：GitHub 会通过 Camo 代理拉取图片，无法访问你电脑上的地址。',
+    'meme.gallery.copyMarkdown': '复制 Giscus 用 Markdown',
+    'meme.gallery.copied': '已复制',
     'meme.gallery.searchPlaceholder': '搜索表情包…',
     'meme.gallery.filterByTag': '按标签筛选',
     'meme.gallery.all': '全部',
@@ -671,7 +680,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
 
     'meme.gallery.pageTitle': '表情包圖庫',
     'meme.gallery.title': '表情包圖庫',
-    'meme.gallery.lead': '在評論中使用 `!meme[name]` 或複製 Markdown 圖片連結。',
+    'meme.gallery.lead':
+      '在文章留言可使用 `!meme[name]`，或點選下方「複製 Giscus 用 Markdown」貼到 Giscus。請勿使用瀏覽器右鍵「複製圖片網址」在本地開發（localhost）時取得的連結：GitHub 會透過 Camo 代理抓取圖片，無法連到你電腦上的位址。',
+    'meme.gallery.copyMarkdown': '複製 Giscus 用 Markdown',
+    'meme.gallery.copied': '已複製',
     'meme.gallery.searchPlaceholder': '搜尋表情包…',
     'meme.gallery.filterByTag': '按標籤篩選',
     'meme.gallery.all': '全部',
