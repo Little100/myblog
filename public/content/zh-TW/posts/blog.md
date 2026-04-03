@@ -6,7 +6,7 @@ lastEdited: 2026-03-31
 author: Little100
 readMinutes: 4
 tags: ["教程",]
-icon: "public/avatar.png"
+icon: "avatar.png"
 ---
 ~~我的部落格非常花俏，獲得了你的喜愛，所以你要建構差不多的部落格😠，我不管我就是這麼認為的。~~
 

@@ -6,7 +6,7 @@ lastEdited: 2026-03-31
 author: Little100
 readMinutes: 4
 tags: ["教程",]
-icon: "public/avatar.png"
+icon: "avatar.png"
 ---
 ~~私のblogは、とても派手で、あなたに愛される 😠, と私はそう思います。~~
 

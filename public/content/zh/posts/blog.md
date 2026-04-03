@@ -6,8 +6,9 @@ lastEdited: 2026-03-31
 author: Little100
 readMinutes: 4
 tags: ["教程",]
-icon: "public/avatar.png"
+icon: "avatar.png"
 ---
+
 ~~我的blog非常花哨, 得到了你的喜爱, 所以你要搭建差不多的blog😠, 我不管我就是这么认为的.~~
 
 ## 准备工作

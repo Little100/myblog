@@ -6,7 +6,7 @@ lastEdited: 2026-03-31
 author: Little100
 readMinutes: 4
 tags: ["Tutorial",]
-icon: "public/avatar.png"
+icon: "avatar.png"
 ---
 ~~My blog is so flashy and you love it, so you want to build something similar 😠, I don't care, that's just what I think.~~
 

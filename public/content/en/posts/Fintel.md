@@ -2,7 +2,7 @@
 title: Fxxk You Intel
 description: Ranting about the crappy blue chip
 date: 2026-03-30
-lastEdited: 2026-03-30
+lastEdited: 2026-04-04
 author: Little100
 readMinutes: 4
 tags: ["Rant", "Intel", "DIY", "Hardware", "GPU", "CPU"]
@@ -17,7 +17,7 @@ Intel is powerful 👍
 
 Sometime I can't recall, I got my first high-end CPU — an i7 13700k. Then, as everyone knows, the ||{[(13th/14th gen CPU degradation scandal)]} aka "silicon degradation" — a fatal bug in the microcode algorithm caused CPUs to forcibly sustain high-frequency, high-voltage states even when temperatures exceeded thresholds, with some voltages spiking to 1.8V| hit the scene. Unfortunately, I was one of the affected.
 
-On March 7, 2026, I bought my first A770 8G Flux OC. It looked great, and I originally planned to use it for OBS recording and streaming. But after installing drivers, even the lightest load caused 100% driver crashes and blue screens. After a restart, the card was 100% lost every time. I searched the entire internet — people said driver version 6299 was stable, so I tried that, but it still blue-screened. The vendor tested Timespy and everything else with no issues. I ended up reselling it. No idea how it's doing now.
+On March 7, 2026, I bought my first A770 8G Flux OC. It looked great, and I originally planned to use it for OBS recording and streaming. But after installing drivers, even the lightest load caused 100% driver crashes and blue screens. After a restart, the card was 100% lost every time. I searched the entire internet — people said driver version 6299 was stable, so I tried that, but it still blue-screened. The vendor tested Timespy and everything else with no issues. I ended up reselling it. ||{[(No idea how it's doing now.)]}Update: It turned out the GPU core had a cold solder joint. After negotiating with the buyer, I got a partial refund.|
 
 And then today (2026.03.30), I just couldn't take it anymore. I absolutely have to give Intel a piece of my mind.
 
