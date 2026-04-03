@@ -5,7 +5,7 @@ import { useI18n } from '../i18n/I18nContext'
 import { SeoHead } from '../components/seo/SeoHead'
 
 export function MemeGalleryPage() {
-  const { t, locale } = useI18n()
+  const { t } = useI18n()
   const [search, setSearch] = useState('')
   const [activeTag, setActiveTag] = useState<string | null>(null)
 
