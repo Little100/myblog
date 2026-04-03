@@ -1,4 +1,24 @@
+import { siteConfig } from '../config/site'
 import { publicAssetUrl } from './publicAssetUrl'
+
+/**
+ * Public origin for meme links in GitHub Discussions / Giscus.
+ * Prefer `config.json` `seo.siteUrl` so pasted markdown works after deploy (not localhost).
+ */
+function canonicalSiteOrigin(): string {
+  const raw = siteConfig.seo?.siteUrl?.trim() ?? ''
+  if (raw) {
+    try {
+      return new URL(raw).origin
+    } catch {
+      /* fall through */
+    }
+  }
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return ''
+}
 
 /**
  * Build a fetch-safe URL for files under `/meme/` (Unicode filenames, subfolders).
@@ -20,9 +40,10 @@ export function memeAssetPath(relativeFile: string): string {
 export function memeAbsoluteUrlForGiscusComment(relativeFile: string): string {
   const path = memeAssetPath(relativeFile)
   if (/^https?:\/\//i.test(path)) return path
-  if (typeof window === 'undefined') return path
+  const origin = canonicalSiteOrigin()
+  if (!origin) return path
   try {
-    return new URL(path, window.location.origin).href
+    return new URL(path, `${origin}/`).href
   } catch {
     return path
   }

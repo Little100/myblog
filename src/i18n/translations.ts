@@ -34,6 +34,7 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'nav.openMenu': 'Open menu',
     'nav.closeMenu': 'Close menu',
     'nav.focusMode': 'Focus',
+    'nav.meme': 'Meme',
     'nav.unavailable': 'Open a blog post to use focus mode',
     'nav.themeCycle': 'Toggle light / dark theme',
     'nav.BLOGRepo': 'View source on GitHub',
@@ -146,6 +147,14 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.inlineMeme.panelTitle': 'Insert Meme',
     'meme.inlineMeme.hint': 'Click to copy, then paste in the comment box',
 
+    'meme.gallery.pageTitle': 'Meme Gallery',
+    'meme.gallery.title': 'Meme Gallery',
+    'meme.gallery.lead': 'Use `!meme[name]` in comments or copy the Markdown image link.',
+    'meme.gallery.searchPlaceholder': 'Search memes…',
+    'meme.gallery.filterByTag': 'Filter by tag',
+    'meme.gallery.all': 'All',
+    'meme.gallery.empty': 'No matching memes found.',
+
     'post.mobileTitle': 'Blog Post',
 
     'focus.siteName': "Little100's BLOG",
@@ -199,6 +208,7 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'nav.openMenu': 'メニューを開く',
     'nav.closeMenu': 'メニューを閉じる',
     'nav.focusMode': 'フォーカス',
+    'nav.meme': 'ミーム',
     'nav.unavailable': '記事ページでフォーカスモードが使えます',
     'nav.themeCycle': 'ライト／ダークを切り替え',
     'nav.BLOGRepo': 'ソースを GitHub で見る',
@@ -311,6 +321,14 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.inlineMeme.panelTitle': 'ミームを挿入',
     'meme.inlineMeme.hint': 'クリックでコピー → コメント欄に貼り付け',
 
+    'meme.gallery.pageTitle': 'ミームギャラリー',
+    'meme.gallery.title': 'ミームギャラリー',
+    'meme.gallery.lead': 'コメントで `!meme[name]` を使うか、Markdown 画像リンクをコピーしてください。',
+    'meme.gallery.searchPlaceholder': 'ミームを検索…',
+    'meme.gallery.filterByTag': 'タグで絞り込み',
+    'meme.gallery.all': 'すべて',
+    'meme.gallery.empty': '該当するミームが見つかりません。',
+
     'post.mobileTitle': 'ブログ記事',
 
     'focus.siteName': "Little100's BLOG",
@@ -364,6 +382,7 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'nav.openMenu': '打开菜单',
     'nav.closeMenu': '关闭菜单',
     'nav.focusMode': '专注模式',
+    'nav.meme': '表情包',
     'nav.unavailable': '打开文章页面后可使用专注模式',
     'nav.themeCycle': '切换浅色 / 深色主题',
     'nav.BLOGRepo': '在 GitHub 查看源码',
@@ -476,6 +495,14 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.inlineMeme.panelTitle': '插入表情包',
     'meme.inlineMeme.hint': '点击复制，再粘贴到评论框',
 
+    'meme.gallery.pageTitle': '表情包图库',
+    'meme.gallery.title': '表情包图库',
+    'meme.gallery.lead': '在评论中使用 `!meme[name]` 或复制 Markdown 图片链接。',
+    'meme.gallery.searchPlaceholder': '搜索表情包…',
+    'meme.gallery.filterByTag': '按标签筛选',
+    'meme.gallery.all': '全部',
+    'meme.gallery.empty': '未找到匹配的表情包。',
+
     'post.mobileTitle': '博客文章',
 
     'focus.siteName': "Little100's BLOG",
@@ -529,6 +556,7 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'nav.openMenu': '開啟選單',
     'nav.closeMenu': '關閉選單',
     'nav.focusMode': '專注模式',
+    'nav.meme': '表情包',
     'nav.unavailable': '開啟文章頁面後可使用專注模式',
     'nav.themeCycle': '切換淺色 / 深色主題',
     'nav.BLOGRepo': '在 GitHub 檢視原始碼',
@@ -640,6 +668,14 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.inlineMeme.title': '插入表情包到評論',
     'meme.inlineMeme.panelTitle': '插入表情包',
     'meme.inlineMeme.hint': '點擊複製，再貼到留言框',
+
+    'meme.gallery.pageTitle': '表情包圖庫',
+    'meme.gallery.title': '表情包圖庫',
+    'meme.gallery.lead': '在評論中使用 `!meme[name]` 或複製 Markdown 圖片連結。',
+    'meme.gallery.searchPlaceholder': '搜尋表情包…',
+    'meme.gallery.filterByTag': '按標籤篩選',
+    'meme.gallery.all': '全部',
+    'meme.gallery.empty': '未找到匹配的表情包。',
 
     'post.mobileTitle': '部落格文章',
 

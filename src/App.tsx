@@ -11,6 +11,7 @@ import { HomePage } from './pages/HomePage'
 import { PostPage } from './pages/PostPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { TagsPage } from './pages/TagsPage'
+import { MemeGalleryPage } from './pages/MemeGalleryPage'
 import { LOCALE_DEFS } from './i18n/translations'
 import type { Locale } from './i18n/translations'
 import rawConfig from '../config.json'
@@ -93,6 +94,7 @@ export default function App() {
             <Route path="tags" element={<ErrorBoundary><TagsPage /></ErrorBoundary>} />
             <Route path="privacy" element={<ErrorBoundary><PrivacyPage /></ErrorBoundary>} />
             <Route path="terms" element={<ErrorBoundary><ContactPage /></ErrorBoundary>} />
+            <Route path="meme" element={<ErrorBoundary><MemeGalleryPage /></ErrorBoundary>} />
             <Route path="404" element={<NotFoundPage />} />
             <Route
               path="*"
@@ -118,6 +120,7 @@ export default function App() {
               <Route path="tags" element={<ErrorBoundary><TagsPage /></ErrorBoundary>} />
               <Route path="privacy" element={<ErrorBoundary><PrivacyPage /></ErrorBoundary>} />
               <Route path="terms" element={<ErrorBoundary><ContactPage /></ErrorBoundary>} />
+              <Route path="meme" element={<ErrorBoundary><MemeGalleryPage /></ErrorBoundary>} />
               <Route path="404" element={<NotFoundPage />} />
               <Route
                 path="*"

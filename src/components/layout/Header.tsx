@@ -7,6 +7,7 @@ import {
   Mail,
   Moon,
   Search,
+  Smile,
   Sun,
   UserRound,
   type LucideIcon,
@@ -48,6 +49,7 @@ const nav: readonly { to: string; key: string; Icon: LucideIcon }[] = [
   { to: '/about', key: 'nav.about', Icon: UserRound },
   { to: '/blog', key: 'nav.blog', Icon: FileText },
   { to: '/changelog', key: 'nav.changelog', Icon: GitBranch },
+  { to: '/meme', key: 'nav.meme', Icon: Smile },
   { to: '/contact', key: 'nav.contact', Icon: Mail },
 ]
 
