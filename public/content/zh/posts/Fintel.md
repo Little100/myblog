@@ -6,7 +6,7 @@ lastEdited: 2026-03-30
 author: Little100
 readMinutes: 4
 tags: ["吐槽", "Intel", "DIY", "硬件", "显卡", "CPU"]
-icon: "http://103.236.71.225:10036/pic/i/2026/03/30/p1pii0-3.webp"
+icon: "https://img.little100.cn/i/2026/04/03/yqix9t-3.svg"
 ---
 
 Intel是强大的👍
@@ -68,5 +68,5 @@ openai也就是那个发明了chatgpt的公司大家应该都不陌生对吧, 20
 intel 能干成这样也是无敌了, 用了20年时间让我看到了行业巨头变成×××. 是我这辈子想不到的, 最后: 买intel的东西之前**建议三思**
 
 <zigzag>
-![logo](http://103.236.71.225:10036/pic/i/2026/03/30/p1pii0-3.webp)|![logo](http://103.236.71.225:10036/pic/i/2026/03/30/x9gdfw-3.png)
+![logo](https://img.little100.cn/i/2026/04/03/yqix9t-3.svg)|![logo](https://img.little100.cn/i/2026/04/03/yrj1ob-3.webp)
 </zigzag>

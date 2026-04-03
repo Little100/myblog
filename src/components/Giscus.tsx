@@ -9,6 +9,27 @@ function canonicalPath(pathname: string): string {
   return '/' + pathname.split('/').slice(2).join('/') || '/'
 }
 
+/**
+ * Build the absolute URL for a Giscus emoji theme CSS file.
+ * The iframe needs an HTTP-accessible absolute URL; relative paths won't resolve inside giscus.app.
+ */
+function emojiThemeUrl(dark: boolean): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+  const css = dark ? 'giscus-emoji-dark.css' : 'giscus-emoji-light.css'
+  const rel = `${base}/${css}`
+
+  // In the browser, resolve against window.location.origin
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    try {
+      return new URL(rel, window.location.origin).href
+    } catch {
+      return rel
+    }
+  }
+  // During SSR / testing, return as-is (will be replaced at runtime)
+  return rel
+}
+
 type Props = {
   /** Called when embed fails (e.g. app not installed on repo) or loads successfully. */
   onAvailabilityChange?: (available: boolean) => void
@@ -17,6 +38,10 @@ type Props = {
 export function Giscus({ onAvailabilityChange }: Props) {
   const ref = useRef<HTMLDivElement>(null)
   const { pathname } = useLocation()
+
+  // Build the theme URLs once
+  const lightTheme = emojiThemeUrl(false)
+  const darkTheme = emojiThemeUrl(true)
 
   useEffect(() => {
     const cfg = siteConfig.giscus
@@ -49,6 +74,32 @@ export function Giscus({ onAvailabilityChange }: Props) {
 
     ref.current?.appendChild(script)
   }, [pathname])
+
+  // After Giscus loads, switch to the custom theme and keep it in sync on dark-mode changes
+  useEffect(() => {
+    const iframe = (): HTMLIFrameElement | null =>
+      document.querySelector<HTMLIFrameElement>('iframe.giscus-frame')
+
+    const sendTheme = (theme: 'light' | 'dark') => {
+      const f = iframe()
+      if (!f?.contentWindow) return
+      const url = theme === 'dark' ? darkTheme : lightTheme
+      f.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: url } } },
+        'https://giscus.app',
+      )
+    }
+
+    // Detect current prefers-color-scheme
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    sendTheme(prefersDark ? 'dark' : 'light')
+
+    // Listen for OS theme changes
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+    const onChange = (e: MediaQueryListEvent) => sendTheme(e.matches ? 'dark' : 'light')
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [lightTheme, darkTheme])
 
   useEffect(() => {
     if (!onAvailabilityChange) return

@@ -101,6 +101,8 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'post.annotationsMobileClose': 'Close',
     'post.annotationTip': 'Tip',
     'post.comments': 'Comments',
+    'post.comments.expand': 'Expand comments',
+    'post.comments.collapse': 'Collapse comments',
     'post.readingProgress': 'Reading progress',
     'post.searchThisArticle': 'Search this article',
     'post.searchThisArticlePlaceholder': 'Search in this article…',
@@ -122,10 +124,12 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.reactions.close': 'Close',
     'meme.reactions.selectHint': 'Select a meme below',
     'meme.reactions.captionPlaceholder': 'Add a caption (optional)…',
-    'meme.reactions.post': 'Post Reaction',
+    'meme.reactions.post': 'Copy markdown',
     'meme.reactions.posting': 'Posting…',
     'meme.reactions.posted': 'Posted!',
-    'meme.reactions.note': 'Your meme will be posted as a comment via Giscus. Log in with GitHub to comment.',
+    'meme.reactions.copyFailed': 'Could not copy. Check clipboard permissions for this site.',
+    'meme.reactions.note':
+      'Copies `![:name:](image URL)` for Giscus. Paste into the comment box below, then submit. GitHub loads the image from your site’s public URL.',
 
     'meme.picker.title': 'Meme Gallery',
     'meme.picker.close': 'Close',
@@ -137,6 +141,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.insert.label': 'Meme',
 
     'meme.error.notFound': 'Meme not found:',
+    'meme.inlineMeme.label': 'Meme',
+    'meme.inlineMeme.title': 'Insert meme into comment',
+    'meme.inlineMeme.panelTitle': 'Insert Meme',
+    'meme.inlineMeme.hint': 'Click to copy, then paste in the comment box',
 
     'post.mobileTitle': 'Blog Post',
 
@@ -258,6 +266,8 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'post.annotationsMobileClose': '閉じる',
     'post.annotationTip': 'ヒント',
     'post.comments': 'コメント',
+    'post.comments.expand': 'コメントを開く',
+    'post.comments.collapse': 'コメントを閉じる',
     'post.readingProgress': '読了の目安',
     'post.searchThisArticle': 'この記事を検索',
     'post.searchThisArticlePlaceholder': 'この記事内を検索…',
@@ -279,10 +289,12 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.reactions.close': '閉じる',
     'meme.reactions.selectHint': '下のミームを選択',
     'meme.reactions.captionPlaceholder': 'キャプションを追加（任意）…',
-    'meme.reactions.post': 'リアクションを投稿',
+    'meme.reactions.post': 'Markdown をコピー',
     'meme.reactions.posting': '投稿中…',
     'meme.reactions.posted': '投稿完了！',
-    'meme.reactions.note': 'ミームはGiscus経由でコメントとして投稿されます。コメントするにはGitHubでログインしてください。',
+    'meme.reactions.copyFailed': 'コピーできませんでした。このサイトのクリップボード権限を確認してください。',
+    'meme.reactions.note':
+      '`![:名前:](画像URL)` をコピーします。下の Giscus のコメント欄に貼り付けて送信してください。画像はサイトの公開 URL から読み込まれます。',
 
     'meme.picker.title': 'ミームギャラリー',
     'meme.picker.close': '閉じる',
@@ -294,6 +306,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.insert.label': 'ミーム',
 
     'meme.error.notFound': 'ミームが見つかりません:',
+    'meme.inlineMeme.label': 'ミーム',
+    'meme.inlineMeme.title': 'コメントにミームを挿入',
+    'meme.inlineMeme.panelTitle': 'ミームを挿入',
+    'meme.inlineMeme.hint': 'クリックでコピー → コメント欄に貼り付け',
 
     'post.mobileTitle': 'ブログ記事',
 
@@ -415,6 +431,8 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'post.annotationsMobileClose': '关闭',
     'post.annotationTip': '提示',
     'post.comments': '评论',
+    'post.comments.expand': '展开评论',
+    'post.comments.collapse': '收起评论',
     'post.readingProgress': '阅读进度',
     'post.searchThisArticle': '搜索本文',
     'post.searchThisArticlePlaceholder': '在本文中搜索…',
@@ -436,10 +454,12 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.reactions.close': '关闭',
     'meme.reactions.selectHint': '从下方选择表情包',
     'meme.reactions.captionPlaceholder': '添加说明（可选）…',
-    'meme.reactions.post': '发送表情',
+    'meme.reactions.post': '复制 Markdown',
     'meme.reactions.posting': '发送中…',
     'meme.reactions.posted': '已发送！',
-    'meme.reactions.note': '表情包将通过 Giscus 以评论形式发布。请登录 GitHub 后评论。',
+    'meme.reactions.copyFailed': '无法复制到剪贴板，请检查本站点的剪贴板权限。',
+    'meme.reactions.note':
+      '会复制 `![:表情包名:](图片地址)` 格式的 Markdown。请在下方 Giscus 评论框中粘贴后发送评论。GitHub 会从你的网站公网地址加载图片；若要自定义评论区里图片样式，需在 Giscus 的 data-theme 样式中针对 `.gsc-emoji` 编写 CSS（父页面样式无法作用于 iframe 内）。',
 
     'meme.picker.title': '表情包图库',
     'meme.picker.close': '关闭',
@@ -451,6 +471,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.insert.label': '表情包',
 
     'meme.error.notFound': '未找到表情包：',
+    'meme.inlineMeme.label': '表情包',
+    'meme.inlineMeme.title': '插入表情包到评论',
+    'meme.inlineMeme.panelTitle': '插入表情包',
+    'meme.inlineMeme.hint': '点击复制，再粘贴到评论框',
 
     'post.mobileTitle': '博客文章',
 
@@ -572,6 +596,8 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'post.annotationsMobileClose': '關閉',
     'post.annotationTip': '提示',
     'post.comments': '評論',
+    'post.comments.expand': '展開評論',
+    'post.comments.collapse': '收起評論',
     'post.readingProgress': '閱讀進度',
     'post.searchThisArticle': '搜尋本文',
     'post.searchThisArticlePlaceholder': '在本文中搜尋…',
@@ -593,10 +619,12 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.reactions.close': '關閉',
     'meme.reactions.selectHint': '從下方選擇表情包',
     'meme.reactions.captionPlaceholder': '新增說明（可選）…',
-    'meme.reactions.post': '傳送表情',
+    'meme.reactions.post': '複製 Markdown',
     'meme.reactions.posting': '傳送中…',
     'meme.reactions.posted': '已傳送！',
-    'meme.reactions.note': '表情包將透過 Giscus 以評論形式發布。請登入 GitHub 後評論。',
+    'meme.reactions.copyFailed': '無法複製到剪貼簿，請檢查此網站的剪貼簿權限。',
+    'meme.reactions.note':
+      '會複製 `![:表情名:](圖片網址)` 格式的 Markdown。請在下方 Giscus 留言框貼上後送出。GitHub 會從你的網站公開網址載入圖片；若要自訂留言區圖片樣式，請在 Giscus 的 data-theme CSS 中針對 `.gsc-emoji` 撰寫規則（父頁面樣式無法影響 iframe 內容）。',
 
     'meme.picker.title': '表情包圖庫',
     'meme.picker.close': '關閉',
@@ -608,6 +636,10 @@ export const STRINGS: Record<Locale, Record<string, string>> = {
     'meme.insert.label': '表情包',
 
     'meme.error.notFound': '未找到表情包：',
+    'meme.inlineMeme.label': '表情包',
+    'meme.inlineMeme.title': '插入表情包到評論',
+    'meme.inlineMeme.panelTitle': '插入表情包',
+    'meme.inlineMeme.hint': '點擊複製，再貼到留言框',
 
     'post.mobileTitle': '部落格文章',
 

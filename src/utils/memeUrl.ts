@@ -13,3 +13,27 @@ export function memeAssetPath(relativeFile: string): string {
   const segments = s.split('/').map((seg) => encodeURIComponent(seg))
   return publicAssetUrl(`/meme/${segments.join('/')}`)
 }
+
+/**
+ * Absolute image URL for GitHub Discussions / Giscus markdown (relative paths are not resolved server-side).
+ */
+export function memeAbsoluteUrlForGiscusComment(relativeFile: string): string {
+  const path = memeAssetPath(relativeFile)
+  if (/^https?:\/\//i.test(path)) return path
+  if (typeof window === 'undefined') return path
+  try {
+    return new URL(path, window.location.origin).href
+  } catch {
+    return path
+  }
+}
+
+/**
+ * Markdown that Giscus renders as a custom "emoji" image (`class="gsc-emoji"`), e.g. `![:name:](https://…/meme/x.gif)`.
+ */
+export function giscusMemeMarkdownSnippet(memeKey: string, relativeSrc: string, caption?: string): string {
+  const url = memeAbsoluteUrlForGiscusComment(relativeSrc)
+  const line = `![:${memeKey}:](${url})`
+  const cap = caption?.trim()
+  return cap ? `${line}\n\n${cap}` : line
+}

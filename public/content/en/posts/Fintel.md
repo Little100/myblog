@@ -6,7 +6,7 @@ lastEdited: 2026-03-30
 author: Little100
 readMinutes: 4
 tags: ["Rant", "Intel", "DIY", "Hardware", "GPU", "CPU"]
-icon: "http://103.236.71.225:10036/pic/i/2026/03/30/p1pii0-3.webp"
+icon: "https://img.little100.cn/i/2026/04/03/yqix9t-3.svg"
 ---
 
 Intel is powerful 👍
@@ -68,5 +68,5 @@ Even though Intel has done so many messed-up things...
 Intel pulled off something unbelievable — 20 years of watching an industry giant turn into an absolute mess. Never thought I'd see that in my lifetime. Final advice: **Think twice before buying anything from Intel.**
 
 <zigzag>
-![logo](http://103.236.71.225:10036/pic/i/2026/03/30/p1pii0-3.webp)|![logo](http://103.236.71.225:10036/pic/i/2026/03/30/x9gdfw-3.png)
+![logo](https://img.little100.cn/i/2026/04/03/yqix9t-3.svg)|![logo](https://img.little100.cn/i/2026/04/03/yrj1ob-3.webp)
 </zigzag>

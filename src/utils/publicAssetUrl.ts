@@ -12,14 +12,17 @@ export function resolveImageRenderSrc(path: string): ImageRenderSrc | null {
   if (t.startsWith('http://')) {
     return { variant: 'http-upgrade-fallback', httpSrc: t, httpsSrc: `https://${t.slice(7)}` }
   }
-  if (t.startsWith('https://') || t.startsWith('data:')) {
+  if (t.startsWith('https://') || t.startsWith('data:') || t.startsWith('blob:')) {
     return { variant: 'single', src: t }
   }
-  if (!t.startsWith('/')) {
-    return { variant: 'single', src: path }
+  // Protocol-relative URLs (//host/...) must not be prefixed with BASE_URL
+  if (t.startsWith('//')) {
+    return { variant: 'single', src: t }
   }
+  // Root-relative: avoids breaking <img> on deep routes (e.g. /post/slug + public/foo.png → wrong path)
+  const rootRelative = t.startsWith('/') ? t : `/${t.replace(/^\.\//, '')}`
   const base = import.meta.env.BASE_URL
-  const trimmed = t.startsWith('/') ? t.slice(1) : t
+  const trimmed = rootRelative.startsWith('/') ? rootRelative.slice(1) : rootRelative
   return { variant: 'single', src: `${base}${trimmed}` }
 }
 
@@ -32,13 +35,14 @@ export function publicAssetUrl(path: string): string {
   if (t.startsWith('http://')) {
     return 'https://' + t.slice(7)
   }
-  if (t.startsWith('https://') || t.startsWith('data:')) {
+  if (t.startsWith('https://') || t.startsWith('data:') || t.startsWith('blob:')) {
     return path
   }
-  if (!t.startsWith('/')) {
-    return path
+  if (t.startsWith('//')) {
+    return t
   }
+  const rootRelative = t.startsWith('/') ? t : `/${t.replace(/^\.\//, '')}`
   const base = import.meta.env.BASE_URL
-  const trimmed = t.startsWith('/') ? t.slice(1) : t
+  const trimmed = rootRelative.startsWith('/') ? rootRelative.slice(1) : rootRelative
   return `${base}${trimmed}`
 }

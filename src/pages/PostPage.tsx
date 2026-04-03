@@ -21,6 +21,7 @@ import { preprocessMarkdownAnnotations } from '../utils/annotationMarkdown'
 import { useArticleFocus } from '../focus/ArticleFocusContext'
 import { Giscus } from '../components/Giscus'
 import { GiscusMemeReactions } from '../components/post/GiscusMemeReactions'
+import { GiscusInlineMemePanel } from '../components/post/GiscusInlineMemePanel'
 import { AnnotationBridges, TEXT_ID } from '../components/post/AnnotationBridges'
 import { PostReadingRailCard } from '../components/post/PostReadingRailCard'
 import { PostAnnotationMarginRoot } from '../components/post/PostAnnotationMarginRoot'
@@ -101,6 +102,7 @@ export function PostPage() {
   const { setArticleFocusOpener } = useArticleFocus()
   const [focusOpen, setFocusOpen] = useState(false)
   const [giscusEmbedOk, setGiscusEmbedOk] = useState(true)
+  const [giscusCollapsed, setGiscusCollapsed] = useState(false)
   const [postMainWrap, setPostMainWrap] = useState<HTMLDivElement | null>(null)
   const articleSearchRootRef = useRef<HTMLDivElement>(null)
   const reduceMotion = useReducedMotion()
@@ -362,8 +364,29 @@ export function PostPage() {
                       giscusAvailable={giscusEmbedOk}
                     />
                     <div className="giscus-wrapper">
-                      <h2 className="giscus-title">{t('post.comments')}</h2>
-                      <Giscus onAvailabilityChange={setGiscusEmbedOk} />
+                      <div className="giscus-header">
+                        <h2 className="giscus-title">{t('post.comments')}</h2>
+                        <div className="giscus-header__actions">
+                          <GiscusInlineMemePanel />
+                          <button
+                            type="button"
+                            className="giscus-collapse-btn"
+                            onClick={() => setGiscusCollapsed((v) => !v)}
+                            aria-expanded={!giscusCollapsed}
+                            aria-label={giscusCollapsed ? t('post.comments.expand') : t('post.comments.collapse')}
+                          >
+                            <i className={`fas fa-chevron-${giscusCollapsed ? 'down' : 'up'}`} />
+                            <span>{giscusCollapsed ? t('post.comments.expand') : t('post.comments.collapse')}</span>
+                          </button>
+                        </div>
+                      </div>
+                      <motion.div
+                        animate={{ height: giscusCollapsed ? 0 : 'auto', opacity: giscusCollapsed ? 0 : 1 }}
+                        transition={{ duration: 0.22, ease: 'easeOut' }}
+                        style={{ overflow: 'hidden' }}
+                      >
+                        <Giscus onAvailabilityChange={setGiscusEmbedOk} />
+                      </motion.div>
                     </div>
                   </>
                 )}

@@ -3,7 +3,32 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MEME_MANIFEST } from 'virtual:meme-manifest'
 import { useI18n } from '../../i18n/I18nContext'
 import { siteConfig } from '../../config/site'
-import { memeAssetPath } from '../../utils/memeUrl'
+import { giscusMemeMarkdownSnippet, memeAssetPath } from '../../utils/memeUrl'
+
+async function copyTextToClipboard(text: string): Promise<boolean> {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text)
+      return true
+    } catch {
+      /* fall through */
+    }
+  }
+  try {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    ta.setAttribute('readonly', '')
+    ta.style.position = 'fixed'
+    ta.style.left = '-9999px'
+    document.body.appendChild(ta)
+    ta.select()
+    const ok = document.execCommand('copy')
+    document.body.removeChild(ta)
+    return ok
+  } catch {
+    return false
+  }
+}
 
 const PLACEHOLDER_REPOS = ['your-username/your-repo', '']
 
@@ -82,8 +107,7 @@ export function GiscusMemeReactions({
   const [showMemePanel, setShowMemePanel] = useState(false)
   const [panelMeme, setPanelMeme] = useState<string | null>(null)
   const [panelCaption, setPanelCaption] = useState('')
-  const [posting, setPosting] = useState(false)
-  const [justPosted, setJustPosted] = useState(false)
+  const [copyFailed, setCopyFailed] = useState(false)
 
   const toggleReaction = useCallback(
     async (emoji: string) => {
@@ -110,24 +134,21 @@ export function GiscusMemeReactions({
     setShowMemePanel(false)
     setPanelMeme(null)
     setPanelCaption('')
+    setCopyFailed(false)
   }, [])
 
-  const postMemeComment = useCallback(async () => {
+  const copyMemeMarkdown = useCallback(async () => {
     if (!panelMeme) return
-    setPosting(true)
+    setCopyFailed(false)
+    const entry = MEME_MANIFEST[panelMeme]
+    if (!entry?.src) return
 
-    const iframe = document.querySelector<HTMLIFrameElement>('iframe.giscus-frame')
-    if (iframe?.contentWindow) {
-      iframe.contentWindow.postMessage(
-        { giscus: true, setReply: { body: `!meme[${panelMeme}]${panelCaption ? ` ${panelCaption}` : ''}` } },
-        'https://giscus.app',
-      )
+    const markdown = giscusMemeMarkdownSnippet(panelMeme, entry.src, panelCaption)
+    const ok = await copyTextToClipboard(markdown)
+    if (!ok) {
+      setCopyFailed(true)
+      return
     }
-
-    await new Promise((r) => setTimeout(r, 500))
-    setPosting(false)
-    setJustPosted(true)
-    setTimeout(() => setJustPosted(false), 3000)
     closeMemePanel()
   }, [panelMeme, panelCaption, closeMemePanel])
 
@@ -166,7 +187,10 @@ export function GiscusMemeReactions({
             <motion.button
               type="button"
               className="giscus-meme-reactions__btn giscus-meme-reactions__btn--meme"
-              onClick={() => setShowMemePanel(true)}
+              onClick={() => {
+                setCopyFailed(false)
+                setShowMemePanel(true)
+              }}
               title={t('meme.reactions.sendMeme')}
               whileTap={{ scale: 0.88 }}
               aria-label={t('meme.reactions.sendMeme')}
@@ -274,19 +298,19 @@ export function GiscusMemeReactions({
                 />
                 <button
                   type="button"
-                  className={`meme-reaction-panel__submit${posting ? ' meme-reaction-panel__submit--loading' : ''}${justPosted ? ' meme-reaction-panel__submit--success' : ''}${!panelMeme ? ' meme-reaction-panel__submit--disabled' : ''}`}
-                  onClick={postMemeComment}
-                  disabled={!panelMeme || posting}
+                  className={`meme-reaction-panel__submit${!panelMeme ? ' meme-reaction-panel__submit--disabled' : ''}`}
+                  onClick={() => void copyMemeMarkdown()}
+                  disabled={!panelMeme}
                 >
-                  {posting ? (
-                    <><i className="fas fa-spinner fa-spin" /> {t('meme.reactions.posting')}</>
-                  ) : justPosted ? (
-                    <><i className="fas fa-check" /> {t('meme.reactions.posted')}</>
-                  ) : (
-                    <><i className="fas fa-paper-plane" /> {t('meme.reactions.post')}</>
-                  )}
+                  <i className="fas fa-copy" /> {t('meme.reactions.post')}
                 </button>
               </div>
+
+              {copyFailed && (
+                <p className="meme-reaction-panel__copy-error" role="alert">
+                  {t('meme.reactions.copyFailed')}
+                </p>
+              )}
 
               <p className="meme-reaction-panel__note">
                 <i className="fas fa-info-circle" />
