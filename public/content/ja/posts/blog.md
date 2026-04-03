@@ -1,55 +1,58 @@
 ---
-title: 私のblog построить方法
-description: Little100のblogテンプレート構築ガイド
+title: このブログの作り方
+description: Little100 のブログテンプレート構築ガイド
 date: 2026-03-31
-lastEdited: 2026-03-31
+lastEdited: 2026-04-04
 author: Little100
 readMinutes: 4
-tags: ["教程",]
+tags: ["チュートリアル"]
 icon: "avatar.png"
 ---
-~~私のblogは、とても派手で、あなたに愛される 😠, と私はそう思います。~~
+
+~~私のブログはかなり派手で、あなたのお気に入りになる…そう信じています 😠~~
 
 ## 準備
 
- - GitHubアカウントを持っている
- - Markdownの基本的知识がある
- - Node.jsがインストール済み
- - 基本的な英語力または翻訳ツール
- - 質問する前に検索+AIに聞く习惯がある
- - 適切なエディタがある（例：VS Code）
- - Gitがインストール済み
+ - GitHub アカウントがある
+ - Markdown の基本がわかる
+ - Node.js が入っている
+ - 英語が少しできる、または翻訳ツールを使える
+ - 困ったらまず検索と AI に聞く習慣がある
+ - 適当なエディタがある（例：VS Code）
+ - Git が入っている
 
 ## 始めよう
 
-### 1. リポジトリをクローン
-右上隅のGitHubアイコンをクリックするか、[ここをクリック](https://github.com/Little100/blog)にアクセスして、私のblogリポジトリに飛び、Forkをクリック、何ステップか次へ進むと、リポジトリが正常に表示されます。
+### 1. リポジトリをフォークする
 
-### 2. ローカル編集
-Gitをインストール済みなら、ターミナルを開いて以下を入力：
+右上の GitHub アイコンをクリックするか、[こちら](https://github.com/Little100/blog)から私のブログリポジトリを開き、**Fork** を押して手順に従ってください。リポジトリの中身が普通に表示されれば成功です。
+
+### 2. ローカルで取得する
+
+Git が入っていればターミナルで次のようにします。
 
 ```bash
 git clone https://github.com/YourUsername/blog.git
 ```
 
-インストールしていなければ、リポジトリページにアクセスしてCodeをクリック（Microsoft中国語翻訳では「法典」と表示される場合がありますが、無視してください）、一番下のDownload ZIPボタンをクリックし、好きな場所に解凍してください。
+Git がない場合は、リポジトリページの **Code** を開き（環境によっては翻訳で変な語に化けることがありますが、緑のボタンだと思えば大丈夫です）、一番下の **Download ZIP** で ZIP を落として、好きな場所に解凍してください。
 
-### 3. コンテンツの編集
+### 3. コンテンツを編集する
 
-`config.json`の関連箇所（名前など）を変更してください。どの部分を変更すればいいのか分からない場合は、AIに聞いてください。
+`config.json` の名前など、自分用に変えたい箇所を書き換えます。どこを触ればいいか迷ったら AI に聞いてください。
 
-すべての記事コンテンツは `public/content/{lang}/` の配下にあります。built-inテンプレートがいくつか用意されているので、参照してください。
+記事本文はすべて `public/content/{言語コード}/` 以下にあります。同梱のサンプル記事も参考にしてください。
 
-### 4. ローカルテスト
+### 4. ローカルで動作確認
 
-ターミナルで以下を実行してください：
+ターミナルで次を実行します。
 
 ```bash
 npm install
 npm run dev
 ```
 
-記事の欠落などの問題が発生した場合は、以下を試してください：
+記事が足りないなどの不具合が出たら、次も試してください。
 
 ```bash
 npm run build
@@ -58,11 +61,11 @@ npm run dev
 
 ### 5. デプロイ
 
-ローカルテストに問題がなければ、デプロイの準備完了です。まず、blogリポジトリにアクセスし、Settings → Pages → Build and Deployment → Source → GitHub Actions → Save とクリックしてください。
+ローカルで問題なければデプロイの準備は OK です。ブログのリポジトリで **Settings → Pages → Build and deployment → Source → GitHub Actions → Save** の順に設定します。
 
-次に Settings → Secrets and variables → Actions → Variables → New repository variable → Name: VITE_BASE → Value: / → Add variable → Save と進みます。
+続けて **Settings → Secrets and variables → Actions → Variables → New repository variable** で、名前に `VITE_BASE`、値に `/` を入れて保存します。
 
-次にgitにログインし（やり方は検索してください）、以下を実行してください：
+Git にログインしたうえで（手順は各自検索してください）、次を実行します。
 
 ```bash
 git add .
@@ -70,15 +73,15 @@ git commit -m "あなたのコミットメッセージ"
 git push origin main
 ```
 
-すべて順調であれば、GitHub Pagesでblogが公開されます： `https://your-username.github.io/blog/`
+うまくいけば GitHub Pages で `https://your-username.github.io/blog/` のように公開されます。
 
-### 任意 — Giscusコメントを有効にする
+### 任意 — Giscus コメントを有効にする
 
-まず[Giscus公式サイト](https://giscus.app/)にアクセスし、下にスクロールしてリポジトリ → 2. giscus appがインストールされている場所、青いgiscusリンクをクリックするか、[ここからインストール](https://github.com/apps/giscus)してください。
+まず [Giscus のサイト](https://giscus.app/) を開き、下の方の手順に従ってリポジトリを選びます。**giscus** アプリのインストールは[こちら](https://github.com/apps/giscus)からも行えます。
 
-インストール後、blogリポジトリにアクセスし、Settings → 下にスクロール → Discussions → チェックを入れます。
+インストール後、ブログのリポジトリで **Settings → Discussions** を有効にします。
 
-次に[Giscus公式サイト](https://giscus.app/)に戻り、リポジトリ欄にGitHubユーザー名/リポジトリ名（例：`Little100/blog`）を入力して次へ、好きなテーマを選んで次へ進むと、下部に以下のようなコードが表示されます：
+もう一度 [Giscus](https://giscus.app/) に戻り、リポジトリ名（例：`Little100/blog`）を入力してテーマを選ぶと、ページ下部に次のような埋め込みコードが表示されます。
 
 ```html
 <script src="https://giscus.app/client.js"
@@ -98,6 +101,6 @@ git push origin main
 </script>
 ```
 
-`data-repo`、`data-repo-id`、`data-category`、`data-category-id`の4つのフィールドを取得し、`config.json`のgiscus設定に追加してプッシュすれば完了です！
+`data-repo`、`data-repo-id`、`data-category`、`data-category-id` の 4 つを `config.json` の giscus 設定に転記してプッシュすれば完了です。
 
 !meme[得意17]

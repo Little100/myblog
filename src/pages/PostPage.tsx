@@ -428,7 +428,6 @@ export function PostPage() {
               <SocialLinks variant="spread" />
             </div>
             <PostReadingRailCard
-              title={displayTitle}
               articleRootRef={articleSearchRootRef}
               tags={resolvedTags}
             />

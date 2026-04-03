@@ -3,12 +3,11 @@ import { useI18n } from '../../i18n/I18nContext'
 import { searchInArticleDom } from '../../utils/articleDomSearch'
 
 type Props = {
-  title: string
   articleRootRef: RefObject<HTMLElement | null>
   tags?: string[]
 }
 
-export function PostReadingRailCard({ title, articleRootRef, tags = [] }: Props) {
+export function PostReadingRailCard({ articleRootRef, tags = [] }: Props) {
   const { t } = useI18n()
   const [q, setQ] = useState('')
   const [progress, setProgress] = useState(0)
@@ -53,7 +52,7 @@ export function PostReadingRailCard({ title, articleRootRef, tags = [] }: Props)
         />
       </div>
       <p className="reading-rail-card__pct">{progress}%</p>
-      <h2 className="reading-rail-card__title">{title}</h2>
+      <h2 className="reading-rail-card__title">{t('post.searchThisArticle')}</h2>
       <form className="reading-rail-card__search" onSubmit={onSubmit}>
         <label className="sr-only" htmlFor="reading-rail-search">
           {t('post.searchThisArticle')}
