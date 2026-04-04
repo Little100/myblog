@@ -20,7 +20,6 @@ import { firstMarkdownImageSrc, stripFirstMarkdownH1, stripFirstMarkdownImage } 
 import { preprocessMarkdownAnnotations } from '../utils/annotationMarkdown'
 import { useArticleFocus } from '../focus/ArticleFocusContext'
 import { Giscus } from '../components/Giscus'
-import { GiscusMemeReactions } from '../components/post/GiscusMemeReactions'
 import { GiscusInlineMemePanel } from '../components/post/GiscusInlineMemePanel'
 import { AnnotationBridges, TEXT_ID } from '../components/post/AnnotationBridges'
 import { PostReadingRailCard } from '../components/post/PostReadingRailCard'
@@ -101,7 +100,6 @@ export function PostPage() {
   const md = useParsedMarkdown(url)
   const { setArticleFocusOpener } = useArticleFocus()
   const [focusOpen, setFocusOpen] = useState(false)
-  const [giscusEmbedOk, setGiscusEmbedOk] = useState(true)
   const [giscusCollapsed, setGiscusCollapsed] = useState(false)
   const [postMainWrap, setPostMainWrap] = useState<HTMLDivElement | null>(null)
   const articleSearchRootRef = useRef<HTMLDivElement>(null)
@@ -113,10 +111,6 @@ export function PostPage() {
     setArticleFocusOpener(() => setFocusOpen(true))
     return () => setArticleFocusOpener(null)
   }, [setArticleFocusOpener])
-
-  useEffect(() => {
-    setGiscusEmbedOk(true)
-  }, [safeSlug])
 
   const resolvedTags = useMemo(() => {
     if (md.status !== 'ok') return []
@@ -359,10 +353,6 @@ export function PostPage() {
                 </PostAnnotationMarginRoot>
                 {siteConfig.giscus?.enabled && (
                   <>
-                    <GiscusMemeReactions
-                      discussionPath={`/post/${safeSlug}`}
-                      giscusAvailable={giscusEmbedOk}
-                    />
                     <div className="giscus-wrapper">
                       <div className="giscus-header">
                         <h2 className="giscus-title">{t('post.comments')}</h2>
@@ -385,7 +375,7 @@ export function PostPage() {
                         transition={{ duration: 0.22, ease: 'easeOut' }}
                         style={{ overflow: 'hidden' }}
                       >
-                        <Giscus onAvailabilityChange={setGiscusEmbedOk} />
+                        <Giscus />
                       </motion.div>
                     </div>
                   </>
