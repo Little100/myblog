@@ -5,7 +5,7 @@ date: 2026-03-30
 lastEdited: 2026-03-31
 author: Little100
 readMinutes: 4
-tags: ["推荐", "FRP", "公益", "网络穿透", "联机"]
+tags: ["推荐", "FRP", "公益", "网络穿透", "联机", "免费"]
 icon: "https://www.chmlfrp.net/favicon.ico"
 ---
 

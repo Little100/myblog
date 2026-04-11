@@ -5,7 +5,7 @@
   <link href="https://blog.little100.cn/atom.xml" rel="self"/>
   <link href="https://blog.little100.cn/"/>
   <id>https://blog.little100.cn/</id>
-  <updated>2026-04-03T00:00:00Z</updated>
+  <updated>2026-04-11T00:00:00Z</updated>
   <author>
     <name>Little100</name>
   </author>
@@ -35,6 +35,14 @@
     <updated>2026-03-30T00:00:00Z</updated>
     <published>2026-03-30T00:00:00Z</published>
     <summary>Read more about Fxxk you Intel on Little100&apos;s BLOG.</summary>
+  </entry>
+  <entry>
+    <title>一些免费大模型api提供商</title>
+    <link href="https://blog.little100.cn/post/freeaiapi" rel="alternate"/>
+    <id>https://blog.little100.cn/post/freeaiapi</id>
+    <updated>2026-04-11T00:00:00Z</updated>
+    <published>2026-04-11T00:00:00Z</published>
+    <summary>Read more about 一些免费大模型api提供商 on Little100&apos;s BLOG.</summary>
   </entry>
   <entry>
     <title>介绍一下自己</title>
