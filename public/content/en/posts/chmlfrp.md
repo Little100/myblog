@@ -2,10 +2,10 @@
 title: A Public-Interest FRP Service!
 description: Recommending chmlfrp
 date: 2026-03-30
-lastEdited: 2026-03-31
+lastEdited: 2026-04-18
 author: Little100
 readMinutes: 4
-tags: ["Recommendation", "FRP", "Public Interest", "Network Tunneling", "Multiplayer"]
+tags: ["Recommendation", "FRP", "Public Interest", "Network Tunneling", "Multiplayer", "Free"]
 icon: "https://www.chmlfrp.net/favicon.ico"
 ---
 
@@ -55,23 +55,23 @@ See the [node status page](https://panel.chmlfrp.net/tunnel/status) for details.
 
 ~~First of all, it's free, so why not?~~ chmlfrp is a well-established public-interest FRP service, and the free plan works well. There are occasional packet losses and such, ~~but come on, it's public interest!~~ Additionally, if you join the [official QQ group (Group 3)](https://qm.qq.com/q/4BQGEKgecg), the admin, ||{[(chaoji)]}chaoji: Really nice person! Just sleeps during the day mostly, super good personality, ~~also a furry, super cute~~!meme[吃糖2]| gives out benefits every month. For example, in March 2026, they gave away three machines — 5218 4c8g, 15M upload, NAT (20 ports), 100G storage — ~~and when I mentioned building this blog, they even gave me 100G of storage for image hosting!~~ The renewal price is very reasonable too: 28/month. Too bad it's only the 5218 Xi'an location.
 
-<list collapsible:close title:"chaoji's Cloud Server Pricing (Last updated 2026.03.31)">
+<list collapsible:close title:"chaoji's Cloud Server Pricing (Last updated 2026.04.18)">
 Xi'an DDoS Protection 5218 Processor
 | Spec | Bandwidth | Disk | Monthly Price |
 | ------ | --- | -------- | -------- |
-| 2 Core 4G | 10M | 50G | **15 RMB** |
-| 4 Core 8G | 15M | 50G+100G | **28 RMB** |
-| 8 Core 16G | 20M | 50G+200G | **52 RMB** |
-| 16 Core 32G | 20M | 50G+400G | **100 RMB** |
-| 24 Core 64G | 30M | 50G+800G | **200 RMB** |
+| 2 Core 4G | 10M | 50G | **12 RMB** |
+| 4 Core 8G | 15M | 50G+100G | **20 RMB** |
+| 8 Core 16G | 20M | 50G+200G | **40 RMB** |
+| 16 Core 32G | 20M | 50G+400G | **80 RMB** |
+| 24 Core 64G | 30M | 50G+800G | **160 RMB** |
 
 100G DDoS protection, 3-day no-reason refund policy.
 
 ## Add-On Services
 - **Dedicated IP**: 25 RMB/tunnel
-- **Disk Upgrade**: 0.1 RMB/GB/month
-- **RAM Upgrade**: 3 RMB/GB/month
-- **CPU Upgrade**: 3 RMB/core/month
+- **Disk Upgrade**: 0.05 RMB/GB/month
+- **RAM Upgrade**: 2 RMB/GB/month
+- **CPU Upgrade**: 2 RMB/core/month
 - **Bandwidth Upgrade**: 5 RMB/M/month
 
 ~~With prices like these, I feel like an idiot for having bought a 300/month machine that wasn't even as good as the 200 RMB one~~!meme[得意11]
